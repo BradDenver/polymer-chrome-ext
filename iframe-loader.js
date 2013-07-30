@@ -22,6 +22,7 @@ var xhr = {
 };
 
 window.addEventListener('message', function(e) {
+  if(e.data.command) return;
   xhr.bust = e.data.bust;
   xhr.load(e.data.url, function(err, resource) {
     e.source.postMessage({
